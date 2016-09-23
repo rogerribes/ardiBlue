@@ -5,7 +5,13 @@ node_modules/
 platforms/
 plugins/
 .idea
+.tmp
+.sass-cache
 www/lib/angular-animate/
 www/lib/angular-sanitize/
 www/lib/angular-ui-router/
 www/lib/angular/
+*.swp
+*.swo
+*.log
+*.DS_Store
