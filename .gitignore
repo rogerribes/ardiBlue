@@ -15,3 +15,4 @@ www/lib/angular/
 *.swo
 *.log
 *.DS_Store
+www/lib/virtualjoystick.js/
