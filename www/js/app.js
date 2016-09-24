@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('app', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -28,13 +28,25 @@ angular.module('starter', ['ionic'])
       templateUrl: '/templates/mainView.html',
       controller: ''
     }).state('app.console', {
-      url: '/console'
-      templateUrl: '/templates/console-tpl.html'
+      url: '/console',
+      views: {
+        'menuContent':{
+          templateUrl: '/templates/console-tpl.html'
+        }
+      }
+
     }).state('app.limits', {
       url: '/limits',
       templateUrl: '/templates/limits-tpl.html'
     }).state('app.configuration', {
       url: '/configuration',
-      templateUrl: '/templates/configuration-tpl.html'
+      views: {
+        'menuContent':{
+          templateUrl: '/templates/limits-tpl.html'
+        }
+      }
     })
+
+  // If none of the above states are matched, use this as the fallback:
+  $urlRouterProvider.otherwise('/app/console');
 })
