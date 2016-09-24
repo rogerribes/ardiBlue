@@ -21,4 +21,20 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
+}).config(function($stateProvider, $urlRouterProvider){
+    $stateProvider.state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: '/templates/mainView.html',
+      controller: ''
+    }).state('app.console', {
+      url: '/console'
+      templateUrl: '/templates/console-tpl.html'
+    }).state('app.limits', {
+      url: '/limits',
+      templateUrl: '/templates/limits-tpl.html'
+    }).state('app.configuration', {
+      url: '/configuration',
+      templateUrl: '/templates/configuration-tpl.html'
+    })
 })
