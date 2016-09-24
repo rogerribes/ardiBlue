@@ -1,28 +1,13 @@
-//setup angular
-var app = angular.module('scotch-todo', ['ionic', 'LocalStorageModule']);
-
-app.config(function (localStorageServiceProvider) {
-  localStorageServiceProvider
-    .setPrefix('scotch-todo');
-});
-
+var app = angular.module('scotch-todo');
 
 app.controller('main', function ($scope, $ionicModal, localStorageService) {
   //store the entities name in a variable var taskData = 'task';
-
-  var taskData = 'task';
 
 //initialize the tasks scope with empty array
   $scope.tasks = [];
 
 //initialize the task scope with empty object
   $scope.task = {};
-
-  $scope.testtask = {
-    "title": "Test",
-    "content": "Proba de nota",
-    "completed": false
-  };
 
 //configure the ionic modal before use
   $ionicModal.fromTemplateUrl('new-task-modal.html', {
@@ -38,9 +23,8 @@ app.controller('main', function ($scope, $ionicModal, localStorageService) {
       $scope.tasks = localStorageService.get(taskData);
     } else {
       $scope.tasks = [];
-      $scope.tasks.push($scope.testtask);
     }
-  }
+  };
   $scope.createTask = function () {
     //creates a new task
     $scope.tasks.push($scope.task);
@@ -48,13 +32,12 @@ app.controller('main', function ($scope, $ionicModal, localStorageService) {
     $scope.task = {};
     //close new task modal
     $scope.newTaskModal.hide();
-  }
+  };
   $scope.removeTask = function () {
     //removes a task
     $scope.tasks.splice(index, 1);
     localStorageService.set(taskData, $scope.tasks);
-  }
-
+  };
   $scope.completeTask = function () {
     //updates a task as completed
     if (index !== -1) {
@@ -63,11 +46,4 @@ app.controller('main', function ($scope, $ionicModal, localStorageService) {
 
     localStorageService.set(taskData, $scope.tasks);
   }
-  $scope.openTaskModal = function () {
-    $scope.newTaskModal.show();
-  };
-
-  $scope.closeTaskModal = function () {
-    $scope.newTaskModal.hide();
-  };
-})
+});
