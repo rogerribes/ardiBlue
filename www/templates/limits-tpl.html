@@ -1,5 +1,36 @@
-<ion-view view-title="Browse">
+<ion-view view-title="{{ctrl.view.title}}">
   <ion-content>
-    <h1>Browse</h1>
+    <div class="row">
+      <div class="col col-80">
+        <h4 class="text-center">{{ctrl.view.firstOption.title}}</h4>
+      </div>
+      <div class="col col-20">
+        <h4 class="">{{ctrl.limits.forward.selected}}</h4>
+      </div>
+    </div>
+      <div class="list">
+        <div class="item range range-positive">
+          <span>{{ctrl.limits.forward.min}}</span>
+          <input type="range" name="volume" min="{{ctrl.limits.forward.min}}" ng-model="ctrl.limits.forward.selected"
+                 max="{{ctrl.limits.forward.max}}" value="ctrl.limits.formard.selected">
+          <span>{{ctrl.limits.forward.max}}</span>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col col-80">
+        <h4 class="text-center">{{ctrl.view.secondOption.title}}</h4>
+      </div>
+      <div class="col col-20">
+        <h4 class="">{{ctrl.limits.onTurn.selected}}</h4>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item range range-positive">
+        <span>{{ctrl.limits.onTurn.min}}</span>
+        <input type="range" name="volume" min="{{ctrl.limits.onTurn.min}}" ng-model="ctrl.limits.onTurn.selected"
+               max="{{ctrl.limits.onTurn.max}}" value="ctrl.limits.onTurn.selected">
+        <span>{{ctrl.limits.onTurn.max}}</span>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

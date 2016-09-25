@@ -1,5 +1,32 @@
-<ion-view view-title="Browse">
+<ion-view view-title="{{ctrl.view.title}}">
   <ion-content>
-    <h1>Browse</h1>
+    <div class="row row-center">
+      <div class="col">
+        <p>MotorLeft: {{ctrl.mockedArduino.motorLeftPWM}}</p>
+        <p>MotorRight: {{ctrl.mockedArduino.motorRightPWM}}</p>
+      </div>
+      <div class="col">
+        <p>Current State:</p>
+        <p>{{ctrl.mockedArduino.currentState}}</p>
+      </div>
+      <div class="col">Something More</div>
+    </div>
+    <div id="consoleJoystickRow">
+    <div class="row row-bottom">
+      <div  class="col col-60 text-center col-center">
+        <div id="joystick"></div>
+      </div>
+      <p>Joystick: {{ctrl.joystick}}</p>
+      <div class="col col-40">
+        <button class="button button-full button-block button-positive">{{ctrl.mockedArduino.options.btn1}}</button>
+        <button class="button button-full button-block button-balanced">{{ctrl.mockedArduino.options.btn2}}</button>
+        <button class="button button-full button-block button-calm">{{ctrl.mockedArduino.options.btn3}}</button>
+      </div>
+
+    </div>
+      <div id="result" class="col">
+        result
+      </div>
+    </div>
   </ion-content>
 </ion-view>

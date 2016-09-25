@@ -3,7 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('app', ['ionic'])
+angular.module('app', [
+  'ionic',
+  'app.console',
+  'app.limits',
+  'app.configuration'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,31 +27,45 @@ angular.module('app', ['ionic'])
     }
   });
 }).config(function($stateProvider, $urlRouterProvider){
-    $stateProvider.state('app', {
-      url: '/app',
-      abstract: true,
-      templateUrl: '/templates/mainView.html',
-      controller: ''
-    }).state('app.console', {
-      url: '/console',
+    $stateProvider
+      .state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: '/templates/mainView.html'
+    })
+      .state('app.console', {
+        url: '/console',
+        views: {
+          'menuContent':{
+            templateUrl: '/templates/console-tpl.html',
+            controller: 'consoleCtrl as ctrl'
+          }
+        }
+
+
+    })
+      .state('app.limits', {
+      url: '/limits',
       views: {
         'menuContent':{
-          templateUrl: '/templates/console-tpl.html'
+          templateUrl: '/templates/limits-tpl.html',
+          controller: 'limitsCtrl as ctrl'
         }
       }
 
-    }).state('app.limits', {
-      url: '/limits',
-      templateUrl: '/templates/limits-tpl.html'
-    }).state('app.configuration', {
+
+    })
+      .state('app.configuration', {
       url: '/configuration',
       views: {
         'menuContent':{
-          templateUrl: '/templates/limits-tpl.html'
+          templateUrl: '/templates/configuration-tpl.html',
+          controller: 'configurationCtrl as ctrl'
         }
       }
-    })
+
+    });
 
   // If none of the above states are matched, use this as the fallback:
   $urlRouterProvider.otherwise('/app/console');
-})
+});
