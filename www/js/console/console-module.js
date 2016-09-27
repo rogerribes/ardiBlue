@@ -4,5 +4,5 @@
 (function(){
   'use strict';
 
-  angular.module('app.console', []);
+  angular.module('app.console', ['joystickDirective']);
 }());

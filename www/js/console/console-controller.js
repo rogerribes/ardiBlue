@@ -8,7 +8,6 @@
 
   app.controller('consoleCtrl', function(){
     var vm = this;
-
     vm.view = {
       title: "Console"
     };
@@ -23,14 +22,14 @@
         btn3: "Other"
       }
     };
-    var options = {
-      zone: document.getElementById('joystick'),
-      mode: 'static',
-      position: {left: '50%', top: '50%'},
-      color: 'red'
-  };
-    var joystick = nipplejs.create(options);
-    console.log(joystick);
+  //   var options = {
+  //     zone: document.getElementById('joystick'),
+  //     mode: 'static',
+  //     position: {left: '50%', top: '50%'},
+  //     color: 'red'
+  // };
+  //   var joystick = nipplejs.create(options);
+  //   console.log(joystick);
 
   });
 

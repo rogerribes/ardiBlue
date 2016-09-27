@@ -30,7 +30,7 @@ app.controller('limitsCtrl', function(){
       max: 100,
       selected: 30
     }
-  }
+  };
 
 });
 
